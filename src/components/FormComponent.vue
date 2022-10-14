@@ -1,27 +1,27 @@
 <template>
   <section>
-    <TabsFormWrapper>
-      <TabForm title="Add Team">
+    <TabsWrapper>
+      <Tab title="Add Team">
         <AddTeam />
-      </TabForm>
-      <TabForm title="Add Game">
+      </Tab>
+      <Tab title="Add Game">
         <AddGame />
-      </TabForm>
-    </TabsFormWrapper>
+      </Tab>
+    </TabsWrapper>
   </section>
 </template>
 <script>
 import AddTeam from "./AddTeam.vue";
 import AddGame from "./AddGame.vue";
-import TabForm from "./TabForm.vue";
-import TabsFormWrapper from "./TabsFormWrapper.vue";
+import Tab from "./Tab.vue";
+import TabsWrapper from "./TabsWrapper.vue";
 
 export default {
   name: "FormComponent",
   components: {
     AddTeam,
-    TabsFormWrapper,
-    TabForm,
+    TabsWrapper,
+    Tab,
     AddGame,
   },
 };

@@ -34,6 +34,7 @@ li {
   background-color: #eee;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
+  font-weight: 700;
 }
 li.active {
   background-color: #fff;

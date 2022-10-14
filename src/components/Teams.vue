@@ -8,10 +8,10 @@
         <th>Player 1</th>
         <th>Player 2</th>
       </tr>
-      <tr>
-        <td>Nomads</td>
-        <td>John Doe</td>
-        <td>Joahna Doe</td>
+      <tr v-for="team in teams">
+        <td>{{ team.teamName }}</td>
+        <td>{{ team.teamMember1 }}</td>
+        <td>{{ team.teamMember2 }}</td>
       </tr>
     </table>
   </section>
@@ -19,6 +19,7 @@
 <script>
 export default {
   name: "Teams",
+  props: ["teams"],
 };
 </script>
 <style scoped>
@@ -29,6 +30,7 @@ section {
 }
 table {
   width: 100%;
+  overflow-y: auto;
 }
 th {
   text-align: start;
