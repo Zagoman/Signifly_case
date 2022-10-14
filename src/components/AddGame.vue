@@ -13,7 +13,7 @@
       </select>
     </div>
     <div>
-      <span v-if="error"> {{ errorMessage }} </span>
+      <span class="error" v-if="error"> {{ errorMessage }} </span>
     </div>
     <button @click="submit">Add Team</button>
   </div>
@@ -68,6 +68,7 @@ export default {
         return;
       }
       if (!alreadyPopulated) {
+        this.error = false;
         const teamA_names = [];
         const teamB_names = [];
         // Find names
@@ -106,5 +107,8 @@ export default {
 }
 .form button {
   align-self: flex-end;
+}
+.error {
+  color: red;
 }
 </style>

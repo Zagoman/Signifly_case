@@ -12,6 +12,9 @@
       <label for="second_name">Second Member</label>
       <input type="text" id="second_name" v-model="secondMember" />
     </div>
+    <div>
+      <span class="error" v-if="error"> {{ errorMessage }} </span>
+    </div>
     <button @click="submit">Add Team</button>
   </div>
 </template>
@@ -23,23 +26,28 @@ export default {
       teamName: "",
       firstMember: "",
       secondMember: "",
+      error: false,
+      errorMessage: "",
     };
   },
   methods: {
     submit() {
       if (!this.teamName || !this.firstMember || !this.secondMember) {
-        alert("All fields must be filled in");
+        this.error = true;
+        this.errorMessage = "All fields must be filled in";
         return;
       }
 
       if (this.$store.state.teams.length < 8) {
+        this.error = true;
         this.$store.commit("addTeamMember", [this.teamName, this.firstMember, this.secondMember]);
 
         this.teamName = "";
         this.firstMember = "";
         this.secondMember = "";
       } else {
-        alert("Maximum of 8 teams achieved");
+        this.error = true;
+        this.errorMessage = "Maximum of 8 teams achieved";
         this.teamName = "";
         this.firstMember = "";
         this.secondMember = "";
@@ -62,5 +70,8 @@ export default {
 }
 .form button {
   align-self: flex-end;
+}
+.error {
+  color: red;
 }
 </style>

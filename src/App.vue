@@ -3,7 +3,7 @@
     <nav><img src="./assets/logo_signifly.svg" alt="Signifly's Logo" /></nav>
   </header>
   <main>
-    <MainBoard :games="games" :teams="teams" />
+    <MainBoard />
     <FormComponent />
     <Teams />
   </main>
@@ -22,16 +22,7 @@ export default {
   data() {
     const updateTeams = () => {};
     const updateGames = () => {};
-
-    async function fetchInitialData() {
-      const res = await fetch("./data/teams.json");
-      const data = await data.json();
-      console.log(data);
-      return data;
-    }
-
-    // const randomTeam = new Team("Hello World", "Bia", "John");
-    // const randomTeam2 = new Team("heysa", "Renata", "Gabriel");
+    this.$store.dispatch("addTeams");
 
     return {};
   },
