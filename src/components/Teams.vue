@@ -8,7 +8,8 @@
         <th>Player 1</th>
         <th>Player 2</th>
       </tr>
-      <tr v-for="team in teams">
+
+      <tr v-for="(team, index) in $store.state.teams" :key="index">
         <td>{{ team.teamName }}</td>
         <td>{{ team.teamMember1 }}</td>
         <td>{{ team.teamMember2 }}</td>
@@ -17,9 +18,9 @@
   </section>
 </template>
 <script>
+import { mapGetters } from "vuex";
 export default {
   name: "Teams",
-  props: ["teams"],
 };
 </script>
 <style scoped>

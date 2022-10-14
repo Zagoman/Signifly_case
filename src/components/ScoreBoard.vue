@@ -1,18 +1,18 @@
 <template>
   <div class="games">
-    <article class="game">
+    <article class="game" v-for="(game, index) in $store.state.games" :key="index">
       <div class="game_date"><span>9/10</span><span>Now</span></div>
       <div class="game_teams">
-        <span>Team A</span>
-        <span>Team B</span>
+        <span>{{ game.teamA }}</span>
+        <span>{{ game.teamB }}</span>
       </div>
       <div class="game_score">
         <span>10</span>
         <span>6</span>
       </div>
       <div class="game_players">
-        <span>John Doe, Joahna Doe</span>
-        <span>John Doe, Joahna Doe</span>
+        <span>{{ game.teamA_names[0] }}, {{ game.teamA_names[1] }}</span>
+        <span>{{ game.teamB_names[0] }}, {{ game.teamB_names[1] }}</span>
       </div>
     </article>
   </div>
