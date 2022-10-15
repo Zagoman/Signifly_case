@@ -13,9 +13,9 @@
       <input type="text" id="second_name" v-model="secondMember" />
     </div>
     <div>
-      <span class="error" v-if="error"> {{ errorMessage }} </span>
+      <button @click="submit">Add Team</button>
+      <span class="error" v-show="error"> {{ errorMessage }} </span>
     </div>
-    <button @click="submit">Add Team</button>
   </div>
 </template>
 <script>
@@ -63,16 +63,49 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
+  align-items: center;
 }
 .form div {
   display: flex;
   gap: 0.1rem;
   flex-direction: column;
+  width: 100%;
+  align-items: center;
 }
 .form button {
-  align-self: flex-end;
+  align-self: center;
 }
 .error {
   color: red;
+}
+button {
+  background-color: #4f00cf;
+  color: white;
+  padding: 0.5rem 1.5rem;
+  appearance: none;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 250ms ease-in-out;
+  transition: transform 150ms cubic-bezier(0.09, 1.34, 1, 1.06);
+  width: 100%;
+  max-width: 300px;
+}
+button:hover {
+  opacity: 0.8;
+}
+button:active {
+  transform: translate(2px, 2px);
+}
+input {
+  width: 100%;
+  max-width: 300px;
+  height: 35px;
+  border-radius: 0.5rem;
+  background-color: #fff;
+}
+input:focus-visible {
+  outline: #4f00cf auto 1px;
 }
 </style>

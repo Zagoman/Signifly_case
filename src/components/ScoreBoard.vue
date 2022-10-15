@@ -181,4 +181,20 @@ th {
   font-weight: 700;
   text-align: left;
 }
+button {
+  background-color: #4f00cf;
+  color: white;
+  padding: 0.2rem 1rem;
+  width: 50px;
+  appearance: none;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 250ms ease-in-out;
+  transition: transform 150ms cubic-bezier(0.09, 1.34, 1, 1.06);
+}
+button:hover {
+  opacity: 0.8;
+}
 </style>
