@@ -25,7 +25,8 @@ export default {
 section {
   background-color: #fff;
   border-radius: 16px;
-  overflow-y: scroll;
   grid-row: 1/3;
+  /* overflow: hidden; */
+  overflow-y: scroll;
 }
 </style>

@@ -23,6 +23,7 @@ export default {
     const updateTeams = () => {};
     const updateGames = () => {};
     this.$store.dispatch("addTeams");
+    // this.$store.dispatch("addInitialGames");
 
     return {};
   },
@@ -39,6 +40,7 @@ main {
   grid-template-rows: 1fr 1fr;
   padding-inline: 2rem;
   gap: 1rem;
+  max-height: 80vh;
   min-height: 100%;
 }
 </style>

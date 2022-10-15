@@ -15,7 +15,7 @@ export default class Game {
   }
 
   _Init() {
-    this.game_id = Date.now();
+    this.game_id = Date.now() + Math.random() * 100;
   }
 
   _UpdateScore(team, score) {

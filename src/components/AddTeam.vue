@@ -39,8 +39,9 @@ export default {
       }
 
       if (this.$store.state.teams.length < 8) {
-        this.error = true;
+        this.error = false;
         this.$store.commit("addTeamMember", [this.teamName, this.firstMember, this.secondMember]);
+        this.$store.dispatch("addInitialGames");
 
         this.teamName = "";
         this.firstMember = "";

@@ -11,6 +11,6 @@ export default class Team {
   }
 
   _Init() {
-    this.team_id = Date.now();
+    this.team_id = Date.now() + Math.random() * 100;
   }
 }

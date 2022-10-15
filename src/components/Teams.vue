@@ -28,6 +28,7 @@ section {
   background-color: #fff;
   padding: 1.5rem;
   border-radius: 16px;
+  overflow-y: scroll;
 }
 table {
   width: 100%;
