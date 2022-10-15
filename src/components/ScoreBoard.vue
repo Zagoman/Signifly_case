@@ -1,6 +1,52 @@
 <template>
   <div class="games">
-    <article
+    <table>
+      <colgroup span="4"></colgroup>
+
+      <thead>
+        <tr>
+          <th>Status</th>
+          <th>Team Name</th>
+          <th>Score</th>
+          <th>Team members</th>
+        </tr>
+      </thead>
+      <tbody
+        :class="{ playing: game.teamA_score > 0 || game.teamB_score > 0, over: game.teamA_score == 10 || game.teamB_score == 10 }"
+        class="game"
+        v-for="(game, index) in $store.state.games"
+        :key="index"
+      >
+        <tr :class="{ bold: game.teamA_score === 10 }">
+          <td rowspan="2">
+            <span v-if="gameStatus(game) === 'now'">Now</span>
+            <span v-if="gameStatus(game) === 'over'">Over</span>
+            <span v-if="gameStatus(game) === 'TBD'">TBD</span>
+          </td>
+          <td>{{ game.teamA }}</td>
+          <td>
+            <div class="score_flex">
+              <span>{{ game.teamA_score }}</span>
+              <div><button @click="addScore(game.game_id, 'teamA')">+</button><button @click="subtractScore(game.game_id, 'teamA')">-</button></div>
+            </div>
+          </td>
+          <td>{{ game.teamA_names[0] }}, {{ game.teamA_names[1] }}</td>
+        </tr>
+        <tr :class="{ bold: game.teamB_score === 10 }">
+          <td>{{ game.teamB }}</td>
+          <td>
+            <div class="score_flex">
+              <span>{{ game.teamB_score }}</span>
+              <div><button @click="addScore(game.game_id, 'teamB')">+</button><button @click="subtractScore(game.game_id, 'teamB')">-</button></div>
+            </div>
+          </td>
+          <td>
+            <span>{{ game.teamB_names[0] }}, {{ game.teamB_names[1] }}</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- <article
       :class="{ playing: game.teamA_score > 0 || game.teamB_score > 0, over: game.teamA_score == 10 || game.teamB_score == 10 }"
       class="game"
       v-for="(game, index) in $store.state.games"
@@ -17,11 +63,11 @@
       </div>
       <div class="game_scores">
         <div class="game_score">
-          <span>{{ game.teamA_score }}</span>
+          <span :class="{ bold: game.teamA_score === 10 }">{{ game.teamA_score }}</span>
           <div><button @click="addScore(game.game_id, 'teamA')">+</button><button @click="subtractScore(game.game_id, 'teamA')">-</button></div>
         </div>
         <div class="game_score">
-          <span>{{ game.teamB_score }}</span>
+          <span :class="{ bold: game.teamB_score === 10 }">{{ game.teamB_score }}</span>
           <div><button @click="addScore(game.game_id, 'teamB')">+</button><button @click="subtractScore(game.game_id, 'teamB')">-</button></div>
         </div>
       </div>
@@ -29,7 +75,7 @@
         <span>{{ game.teamA_names[0] }}, {{ game.teamA_names[1] }}</span>
         <span>{{ game.teamB_names[0] }}, {{ game.teamB_names[1] }}</span>
       </div>
-    </article>
+    </article> -->
   </div>
 </template>
 <script>
@@ -70,35 +116,48 @@ export default {
 };
 </script>
 <style scoped>
+table {
+  width: 100%;
+  border-spacing: 1px;
+  border-collapse: collapse;
+  /* text-indent: initial; */
+}
 .games {
   padding: 1.5rem;
   overflow-y: scroll;
 }
-.game {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 3fr;
-  gap: 1rem;
-  padding: 2rem 0.5rem 1rem;
+tbody {
+  /* padding: 2rem 0.5rem 1rem; */
   border-bottom: 1px solid #ddd;
-  background-color: #eee;
+  background-color: #fff;
 }
 .game span {
   display: block;
 }
-.game > div {
+.score_flex {
   display: flex;
-  flex-direction: column;
   gap: 0.5rem;
 }
-.game.playing {
+tbody.playing {
   background-color: #90e3b6;
 }
-.game.over {
-  background-color: #637689;
-  color: white;
+tbody.over {
+  /* background-color: #637689; */
+  background-color: #eee;
+  /* color: white; */
+}
+td {
+  padding: 0.5rem 0.2rem;
+}
+tr:nth-child(1) td {
+  padding-top: 2rem;
 }
 .game_score {
   display: flex;
   gap: 1rem;
+}
+tr.bold td,
+tr.bold td span {
+  font-weight: 700;
 }
 </style>
