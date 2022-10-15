@@ -9,7 +9,6 @@ export default class Game {
     this.teamB_names = [...teamB_names];
     this.winnerTeam;
     this.loserTeam;
-    this.gameDate;
 
     this._Init();
   }
@@ -18,17 +17,20 @@ export default class Game {
     this.game_id = Date.now() + Math.random() * 100;
   }
 
-  _UpdateScore(team, score) {
-    this[`team${team}_score`] = score;
-  }
-
-  _AddPoint(team) {
-    this[`team${team}_score`]++;
-    this._UpdateScore(team, this[`team${team}_score`]);
-  }
-
-  _SubtractPoint(team) {
-    this[`team${team}_id`]--;
-    this._UpdateScore(team, this[`team${team}_score`]);
+  CheckWinner(props) {
+    if (this.teamA_score === 10) {
+      this.winnerTeam = this.teamA.teamName;
+      this.teamA.points += 3;
+      this.teamA.gamesWon += 1;
+      this.loserTeam = this.teamB;
+      this.teamB.gamesLost += 1;
+    }
+    if (this.teamB_score === 10) {
+      this.winnerTeam = this.teamB.teamName;
+      this.teamB.points += 3;
+      this.teamB.gamesWon += 1;
+      this.loserTeam = this.teamA;
+      this.teamA.gamesLost += 1;
+    }
   }
 }

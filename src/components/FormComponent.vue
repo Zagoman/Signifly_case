@@ -1,18 +1,11 @@
 <template>
   <section>
-    <TabsWrapper>
-      <Tab title="Add Team">
-        <AddTeam />
-      </Tab>
-      <Tab title="Add Game">
-        <AddGame />
-      </Tab>
-    </TabsWrapper>
+    <div class="title">Add Team</div>
+    <AddTeam />
   </section>
 </template>
 <script>
 import AddTeam from "./AddTeam.vue";
-import AddGame from "./AddGame.vue";
 import Tab from "./Tab.vue";
 import TabsWrapper from "./TabsWrapper.vue";
 
@@ -22,7 +15,6 @@ export default {
     AddTeam,
     TabsWrapper,
     Tab,
-    AddGame,
   },
 };
 </script>
@@ -31,5 +23,10 @@ section {
   background-color: #fff;
   border-radius: 16px;
   overflow: hidden;
+}
+.title {
+  background-color: #fff;
+  padding: 1.5rem;
+  font-weight: 700;
 }
 </style>

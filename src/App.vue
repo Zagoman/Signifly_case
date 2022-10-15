@@ -20,11 +20,7 @@ export default {
     MainBoard,
   },
   data() {
-    const updateTeams = () => {};
-    const updateGames = () => {};
     this.$store.dispatch("addTeams");
-    // this.$store.dispatch("addInitialGames");
-
     return {};
   },
 };

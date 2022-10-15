@@ -2,10 +2,10 @@
   <section>
     <TabsWrapper>
       <Tab title="Score Board">
-        <ScoreBoard :games="games" />
+        <ScoreBoard />
       </Tab>
       <Tab title="Leader Board">
-        <LeaderBoard :teams="teams" />
+        <LeaderBoard />
       </Tab>
     </TabsWrapper>
   </section>

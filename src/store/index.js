@@ -10,9 +10,8 @@ const store = createStore({
   mutations: {
     addTeamMember(state, value) {
       const [teamName, teamMember1, teamMember2] = value;
-      // console.log(teamName, teamMember1, teamMember2);
+
       state.teams.push(new Team(teamName, teamMember1, teamMember2));
-      // console.log(state.teams);
     },
     addGame(state, value) {
       const [team1, team2, teamANames, teamBNames] = value;
@@ -39,7 +38,6 @@ const store = createStore({
       const res = await fetch("src/data/teams.json");
       const data = await res.json();
 
-      // console.log(data);
       data.forEach((entry) => {
         commit("addTeamMember", [entry.teamName, entry.teamMember1, entry.teamMember2]);
       });
@@ -53,7 +51,7 @@ const store = createStore({
           if (state.teams[i] !== state.teams[j]) {
             teamA_names = [state.teams[i].teamMember1, state.teams[i].teamMember2];
             teamB_names = [state.teams[j].teamMember1, state.teams[j].teamMember2];
-            commit("addGame", [state.teams[i].teamName, state.teams[j].teamName, teamA_names, teamB_names]);
+            commit("addGame", [state.teams[i], state.teams[j], teamA_names, teamB_names]);
           }
         }
       }

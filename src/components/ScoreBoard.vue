@@ -23,7 +23,7 @@
             <span v-if="gameStatus(game) === 'over'">Over</span>
             <span v-if="gameStatus(game) === 'TBD'">TBD</span>
           </td>
-          <td>{{ game.teamA }}</td>
+          <td>{{ game.teamA.teamName }}</td>
           <td>
             <div class="score_flex">
               <span>{{ game.teamA_score }}</span>
@@ -33,7 +33,7 @@
           <td>{{ game.teamA_names[0] }}, {{ game.teamA_names[1] }}</td>
         </tr>
         <tr :class="{ bold: game.teamB_score === 10 }">
-          <td>{{ game.teamB }}</td>
+          <td>{{ game.teamB.teamName }}</td>
           <td>
             <div class="score_flex">
               <span>{{ game.teamB_score }}</span>
@@ -83,7 +83,6 @@ export default {
   name: "ScoreBoard",
   methods: {
     addScore(game_id, team) {
-      console.log(game_id, team);
       let currentGame;
       for (let i = 0; i < this.$store.state.games.length; i++) {
         if (this.$store.state.games[i].game_id === game_id) {
@@ -93,15 +92,32 @@ export default {
       if (team === "teamA") {
         if (currentGame.teamA_score < 10 && currentGame.teamB_score !== 10) {
           currentGame.teamA_score++;
+          currentGame.CheckWinner();
         }
       } else {
         if (currentGame.teamB_score < 10 && currentGame.teamA_score !== 10) {
           currentGame.teamB_score++;
+          currentGame.CheckWinner();
         }
       }
-      console.log(currentGame);
     },
-    subtractScore() {},
+    subtractScore(game_id, team) {
+      let currentGame;
+      for (let i = 0; i < this.$store.state.games.length; i++) {
+        if (this.$store.state.games[i].game_id === game_id) {
+          currentGame = this.$store.state.games[i];
+        }
+      }
+      if (team === "teamA") {
+        if (currentGame.teamA_score > 0 && currentGame.teamA_score !== 10 && currentGame.teamB_score !== 10) {
+          currentGame.teamA_score--;
+        }
+      } else {
+        if (currentGame.teamB_score > 0 && currentGame.teamA_score !== 10 && currentGame.teamB_score !== 10) {
+          currentGame.teamB_score--;
+        }
+      }
+    },
     gameStatus(game) {
       if (game.teamA_score === 10 || game.teamB_score === 10) {
         return "over";
@@ -159,5 +175,10 @@ tr:nth-child(1) td {
 tr.bold td,
 tr.bold td span {
   font-weight: 700;
+}
+th {
+  padding: 0.5rem;
+  font-weight: 700;
+  text-align: left;
 }
 </style>

@@ -7,6 +7,7 @@ export default class Team {
     this.games = [];
     this.gamesWon = 0;
     this.gamesLost = 0;
+    this.points = 0;
     this._Init();
   }
 
