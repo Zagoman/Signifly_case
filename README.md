@@ -1,29 +1,19 @@
 # Signifly_case
 
-This template should help get you started developing with Vue 3 in Vite.
+Signifly requested I made a Score Board and Leader Board for Signifly's Foosball tournaments.
 
-## Recommended IDE Setup
+## Tech Used
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+### Vue.js
 
-## Customize configuration
+To complete this project, I made the choice of using Vue.js as my main framework, and the reason I chose Vue instead of Vanilla JavaScript was due to the application relying on a lot of change of state.
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+Using Vue allowed me to only worry about changing the data, since the UI would react to it automatically.
 
-## Project Setup
+### Vuex
 
-```sh
-npm install
-```
+To manage all the states, I used Vuex, so all my data would be kept in one place, and I would have access to it anywhere in my app. This approach allowed me to skip the passing of values from parent to child, and propagating the values back from child to parent.
 
-### Compile and Hot-Reload for Development
+### Git and GitHub
 
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
+To version controll the project, I used Git coupled with GitHub, so I would be able to go back in previous versions of the app if needed, and also to keep my app backed up in the cloud.
