@@ -64,6 +64,7 @@ export default {
   flex-direction: column;
   gap: 0.8rem;
   align-items: center;
+  overflow-y: scroll;
 }
 .form div {
   display: flex;
@@ -101,11 +102,18 @@ button:active {
 input {
   width: 100%;
   max-width: 300px;
-  height: 35px;
+  height: 28px;
   border-radius: 0.5rem;
+  border: 1px solid #000;
   background-color: #fff;
 }
 input:focus-visible {
   outline: #4f00cf auto 1px;
+}
+
+@media only screen and (max-width: 800px) {
+  .form {
+    font-size: 0.8rem;
+  }
 }
 </style>

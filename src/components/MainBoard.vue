@@ -27,7 +27,12 @@ section {
   background-color: #fff;
   border-radius: 16px;
   grid-row: 1/3;
-  /* overflow: hidden; */
   overflow-y: scroll;
+}
+
+@media only screen and (max-width: 800px) {
+  section {
+    height: 80vh;
+  }
 }
 </style>

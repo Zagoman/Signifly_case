@@ -41,7 +41,7 @@ const store = createStore({
 
   actions: {
     async addTeams({ commit }) {
-      const res = await fetch("src/data/teams.json");
+      const res = await fetch("https://signifly.lucaszago.dk/teams.json");
       const data = await res.json();
 
       data.forEach((entry) => {

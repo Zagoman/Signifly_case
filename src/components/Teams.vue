@@ -56,7 +56,6 @@ th {
   font-weight: 700;
 }
 tr,
-th,
 td {
   padding: 1rem 0 0;
   border-bottom: 1px solid #eee;
@@ -72,5 +71,16 @@ h2 {
 }
 .delete:hover {
   color: #4f00cf;
+}
+
+@media only screen and (max-width: 800px) {
+  section {
+    min-height: 50vh;
+    font-size: 0.8rem;
+  }
+  h2 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
 }
 </style>

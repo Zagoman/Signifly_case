@@ -30,4 +30,12 @@ section {
   font-weight: 700;
   font-size: 1.33rem;
 }
+@media only screen and (max-width: 800px) {
+  section {
+    min-height: 50vh;
+  }
+  .title {
+    font-size: 1rem;
+  }
+}
 </style>

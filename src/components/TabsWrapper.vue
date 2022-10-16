@@ -40,4 +40,11 @@ li {
 li.active {
   background-color: #fff;
 }
+
+@media only screen and (max-width: 800px) {
+  li {
+    padding: 0.8rem;
+    font-size: 1rem;
+  }
+}
 </style>

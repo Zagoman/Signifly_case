@@ -44,7 +44,6 @@ export default {
 <style scoped>
 .teams {
   padding: 1.5rem;
-  overflow-y: scroll;
 }
 table {
   width: 100%;
@@ -67,5 +66,10 @@ th {
   padding: 0.5rem;
   font-weight: 700;
   text-align: left;
+}
+@media only screen and (max-width: 800px) {
+  .teams {
+    font-size: 0.8rem;
+  }
 }
 </style>

@@ -1,14 +1,12 @@
 <template>
   <div class="games">
     <table>
-      <colgroup span="4"></colgroup>
-
       <thead>
         <tr>
           <th>Status</th>
           <th>Team Name</th>
           <th>Score</th>
-          <th>Team members</th>
+          <th class="last_column">Team members</th>
         </tr>
       </thead>
       <tbody
@@ -30,7 +28,7 @@
               <div><button @click="addScore(game.game_id, 'teamA')">+</button><button @click="subtractScore(game.game_id, 'teamA')">-</button></div>
             </div>
           </td>
-          <td>{{ game.teamA_names[0] }}, {{ game.teamA_names[1] }}</td>
+          <td class="last_column">{{ game.teamA_names[0] }}, {{ game.teamA_names[1] }}</td>
         </tr>
         <tr :class="{ bold: game.teamB_score === 10 }">
           <td>{{ game.teamB.teamName }}</td>
@@ -40,7 +38,7 @@
               <div><button @click="addScore(game.game_id, 'teamB')">+</button><button @click="subtractScore(game.game_id, 'teamB')">-</button></div>
             </div>
           </td>
-          <td>
+          <td class="last_column">
             <span>{{ game.teamB_names[0] }}, {{ game.teamB_names[1] }}</span>
           </td>
         </tr>
@@ -110,7 +108,7 @@ table {
 }
 .games {
   padding: 1.5rem;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
 }
 tbody {
   /* padding: 2rem 0.5rem 1rem; */
@@ -176,5 +174,19 @@ button:hover {
 }
 button:active {
   transform: translate(1px, 1px);
+}
+
+@media only screen and (max-width: 800px) {
+  .games {
+    padding: 0.8rem;
+    font-size: 0.8rem;
+    overflow: auto;
+  }
+  th {
+    font-size: 0.8rem;
+  }
+  .last_column {
+    display: none;
+  }
 }
 </style>

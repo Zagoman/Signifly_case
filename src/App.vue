@@ -39,4 +39,12 @@ main {
   max-height: 80vh;
   min-height: 100%;
 }
+@media only screen and (max-width: 800px) {
+  main {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    padding-inline: 1rem;
+    max-height: none;
+  }
+}
 </style>
