@@ -15,6 +15,9 @@ export default class Game {
 
   _Init() {
     this.game_id = Date.now() + Math.random() * 100;
+
+    this.teamA.games.push(this);
+    this.teamB.games.push(this);
   }
 
   CheckWinner(props) {

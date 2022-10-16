@@ -30,6 +30,13 @@ const store = createStore({
         state.games.push(new Game(team1, team2, teamANames, teamBNames));
       }
     },
+    removeTeam(state, team) {
+      // remove games where team appears
+      team.games.forEach((game) => {
+        state.games.splice(state.games.indexOf(game), 1);
+      });
+      state.teams.splice(state.teams.indexOf(team), 1);
+    },
   },
 
   actions: {
