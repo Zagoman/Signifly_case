@@ -28,5 +28,6 @@ section {
   background-color: #fff;
   padding: 1.5rem;
   font-weight: 700;
+  font-size: 1.33rem;
 }
 </style>

@@ -28,7 +28,6 @@ const store = createStore({
       // condition to not repeat games
       if (!alreadyExists) {
         state.games.push(new Game(team1, team2, teamANames, teamBNames));
-        console.log(state.games);
       }
     },
   },

@@ -46,36 +46,6 @@
         </tr>
       </tbody>
     </table>
-    <!-- <article
-      :class="{ playing: game.teamA_score > 0 || game.teamB_score > 0, over: game.teamA_score == 10 || game.teamB_score == 10 }"
-      class="game"
-      v-for="(game, index) in $store.state.games"
-      :key="index"
-    >
-      <div class="game_date">
-        <span v-if="gameStatus(game) === 'now'">Now</span>
-        <span v-if="gameStatus(game) === 'over'">Over</span>
-        <span v-if="gameStatus(game) === 'TBD'">TBD</span>
-      </div>
-      <div class="game_teams">
-        <span>{{ game.teamA }}</span>
-        <span>{{ game.teamB }}</span>
-      </div>
-      <div class="game_scores">
-        <div class="game_score">
-          <span :class="{ bold: game.teamA_score === 10 }">{{ game.teamA_score }}</span>
-          <div><button @click="addScore(game.game_id, 'teamA')">+</button><button @click="subtractScore(game.game_id, 'teamA')">-</button></div>
-        </div>
-        <div class="game_score">
-          <span :class="{ bold: game.teamB_score === 10 }">{{ game.teamB_score }}</span>
-          <div><button @click="addScore(game.game_id, 'teamB')">+</button><button @click="subtractScore(game.game_id, 'teamB')">-</button></div>
-        </div>
-      </div>
-      <div class="game_players">
-        <span>{{ game.teamA_names[0] }}, {{ game.teamA_names[1] }}</span>
-        <span>{{ game.teamB_names[0] }}, {{ game.teamB_names[1] }}</span>
-      </div>
-    </article> -->
   </div>
 </template>
 <script>
@@ -154,6 +124,13 @@ tbody {
   display: flex;
   gap: 0.5rem;
 }
+.score_flex span {
+  width: 1.5rem;
+}
+.score_flex div {
+  display: flex;
+  gap: 0.2rem;
+}
 tbody.playing {
   background-color: #90e3b6;
 }
@@ -184,17 +161,20 @@ th {
 button {
   background-color: #4f00cf;
   color: white;
-  padding: 0.2rem 1rem;
-  width: 50px;
+  /* padding: 0.2rem 1rem; */
+  width: 25px;
   appearance: none;
   border: none;
   border-radius: 0.5rem;
   font-weight: 700;
   cursor: pointer;
   transition: opacity 250ms ease-in-out;
-  transition: transform 150ms cubic-bezier(0.09, 1.34, 1, 1.06);
+  transition: transform 100ms cubic-bezier(0.09, 1.34, 1, 1.06);
 }
 button:hover {
   opacity: 0.8;
+}
+button:active {
+  transform: translate(1px, 1px);
 }
 </style>

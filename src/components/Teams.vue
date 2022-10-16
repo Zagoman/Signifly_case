@@ -44,4 +44,8 @@ td {
   padding: 1rem 0 0;
   border-bottom: 1px solid #eee;
 }
+h2 {
+  font-size: 1.33rem;
+  font-weight: 700;
+}
 </style>

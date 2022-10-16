@@ -15,9 +15,10 @@ import TabsWrapper from "./TabsWrapper.vue";
 import Tab from "./Tab.vue";
 import ScoreBoard from "./ScoreBoard.vue";
 import LeaderBoard from "./LeaderBoard.vue";
+import AddTeam from "./AddTeam.vue";
 export default {
   name: "MainBoard",
-  components: { TabsWrapper, Tab, ScoreBoard, LeaderBoard },
+  components: { TabsWrapper, Tab, ScoreBoard, LeaderBoard, AddTeam },
   props: ["games", "teams"],
 };
 </script>
